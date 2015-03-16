@@ -39,13 +39,16 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'foodie',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'social.apps.django_app.default',
+    'corsheaders'
 )
 
 MIDDLEWARE_CLASSES = (
-    # 'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
     # 'django.contrib.auth.middleware.AuthenticationMiddleware',
     # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
@@ -101,19 +104,49 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-    ),
+        'rest_framework.authentication.TokenAuthentication',
+    )
 }
 
-JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
-    'JWT_ALLOW_REFRESH': False,
-}
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookAppOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.twitter.TwitterOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+# SOCIAL_AUTH_PIPELINE = (
+# 'social.pipeline.social_auth.social_details',
+# 'social.pipeline.social_auth.social_uid',
+# 'social.pipeline.social_auth.auth_allowed',
+# 'social.pipeline.social_auth.social_user',
+# 'social.pipeline.user.get_username',
+# 'social.pipeline.social_auth.associate_by_email',
+# 'social.pipeline.user.create_user',
+# 'social.pipeline.social_auth.associate_user',
+# 'social.pipeline.social_auth.load_extra_data',
+# 'social.pipeline.user.user_details'
+# )
 
 # ---- Facebook settings ------
-FACEBOOK_APP_ID = '406752779495620'
-FACEBOOK_APP_SECRET = 'b38ac3bf53da327d8d6cefb2a26a5572'
+# FACEBOOK_APP_ID = '406752779495620'
+# FACEBOOK_APP_SECRET = 'b38ac3bf53da327d8d6cefb2a26a5572'
 
+SOCIAL_AUTH_FACEBOOK_KEY = '406752779495620'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'b38ac3bf53da327d8d6cefb2a26a5572'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '228356886278-r9237hs99u0iogtjmovogvrvmuaohptr.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'uxM2i6FG41CVK31TF414Zm2k'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email', 'profile']
+
+SOCIAL_AUTH_TWITTER_KEY = 'tdqHkvZb6FlmmIxd8JaHJJWca'
+SOCIAL_AUTH_TWITTER_SECRET = ' OBu9RFtMMSKXDPNY5jthTjB9IlriIbahWzpgmt6kDH94Xu7klP'
+
+SOCIAL_AUTH_USER_MODEL = 'foodie.BaseUser'
+SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 
 # ---- GUDFUD settings -----
 # Global constants
@@ -124,3 +157,9 @@ GUDFUD_USER_IMAGE_MAX_WIDTH = 1000
 # Thumbnail image dimensions
 GUDFUD_USER_THUMBNAIL_HEIGHT = 60
 GUDFUD_USER_THUMBNAIL_WIDTH = 50
+
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect'
+)

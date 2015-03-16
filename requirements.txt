@@ -1,0 +1,14 @@
+Django==1.7.4
+Pillow==2.7.0
+PyJWT==0.4.1
+Unidecode==0.04.17
+argparse==1.2.1
+django-cors-headers==1.0.0
+djangorestframework==3.0.5
+oauthlib==0.7.2
+python-openid==2.2.5
+python-social-auth==0.2.2
+requests==2.5.3
+requests-oauthlib==0.4.2
+six==1.9.0
+wsgiref==0.1.2

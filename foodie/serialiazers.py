@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from foodie.models import BaseUser
+from foodie.models import BaseUser, Customer
 
 
 class BaseUserSerializer(serializers.ModelSerializer):
