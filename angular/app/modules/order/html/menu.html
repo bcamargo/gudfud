@@ -1,6 +1,6 @@
 <div layout="row">
     <div flex="" class="fd-main-title">
-        <h1 class="md-display-3">Menú del día</h1>
+        <h1 class="md-display-3 fd-collapse-bottom">Menú del día</h1>
         <p class="md-body-1">Selecciona tus opciones preferidas y haz tu pedido en línea</p>
     </div>
     <div flex="" class="fd-menu-date">
@@ -194,7 +194,8 @@
                         <span>{{ profile.email }}</span>
                     </div>
                 </div>
-                <form ng-show="show_delivery_info" class="fd-delivery-info-form">
+                <form ng-show="show_delivery_info" class="fd-delivery-info-form fd-form" novalidate="">
+                    <div class="fd-form-wrapper">
                     <div layout="" layout-sm="column">
                         <div flex="" class="fd-form-group">
                             <label for="first_name">Nombres</label>
@@ -225,6 +226,7 @@
                             <input type="text" name="phone_number" id="phone_number" ng-model="profile.phone_number">
                         </div>
                     </div>
+                        </div>
                 </form>
             </div>
         </div>

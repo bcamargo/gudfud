@@ -1,42 +1,40 @@
-<div layout="row">
-    <div flex="">
-        <h2 class="md-headline fd-primary">Completa tu perfil</h2>
-    </div>
+<div class="fd-main-title">
+    <h1 class="md-display-3">Completa tu perfil</h1>
 </div>
 <md-content class="md-whiteframe-z1">
-    <form name="form_registration_profile" ng-submit="save_profile()" novalidate="">
-        <md-content class="md-padding">
-            <div layout="" layout-sm="column">
-                <md-input-container flex="">
-                    <label for="first_name">Nombres</label>
-                    <input type="text" name="first_name" id="first_name" ng-model="profile.first_name">
-                </md-input-container>
-                <md-input-container flex="">
-                    <label for="last_name">Apellidos</label>
-                    <input type="text" name="last_name" id="last_name" ng-model="profile.last_name">
-                </md-input-container>
+    <form name="form_registration_profile" ng-submit="save_profile()" novalidate="" class="fd-form">
+        <div class="fd-form-wrapper">
+        <div layout="" layout-sm="column">
+            <div flex="" class="fd-form-group">
+                <label for="first_name">Nombres</label>
+                <input type="text" name="first_name" id="first_name" ng-model="profile.first_name">
             </div>
-            <div layout="" layout-sm="column">
-                <md-input-container flex="">
-                    <label for="address">Dirección</label>
-                    <input type="text" name="address" id="address" ng-model="profile.address">
-                </md-input-container>
-                <md-input-container flex="">
-                    <label for="email">Correo electrónico</label>
-                    <input type="text" name="email" id="email" ng-model="profile.email">
-                </md-input-container>
+            <div flex="" class="fd-form-group">
+                <label for="last_name">Apellidos</label>
+                <input type="text" name="last_name" id="last_name" ng-model="profile.last_name">
             </div>
-            <div layout="" layout-sm="column">
-                <md-input-container flex="">
-                    <label for="mobile_number">Móvil</label>
-                    <input type="text" name="mobile_number" id="mobile_number" ng-model="profile.mobile_number">
-                </md-input-container>
-                <md-input-container flex="">
-                    <label for="phone_number">Teléfono</label>
-                    <input type="text" name="phone_number" id="phone_number" ng-model="profile.phone_number">
-                </md-input-container>
+        </div>
+        <div layout="" layout-sm="column">
+            <div flex="" class="fd-form-group">
+                <label for="address">Dirección</label>
+                <input type="text" name="address" id="address" ng-model="profile.address">
             </div>
-        </md-content>
+            <div flex="" class="fd-form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="text" name="email" id="email" ng-model="profile.email">
+            </div>
+        </div>
+        <div layout="" layout-sm="column">
+            <div flex="" class="fd-form-group">
+                <label for="mobile_number">Móvil</label>
+                <input type="text" name="mobile_number" id="mobile_number" ng-model="profile.mobile_number">
+            </div>
+            <div flex="" class="fd-form-group">
+                <label for="phone_number">Teléfono</label>
+                <input type="text" name="phone_number" id="phone_number" ng-model="profile.phone_number">
+            </div>
+        </div>
+        </div>
         <div layout="row" class="fd-card-action">
             <div flex="">
                 <md-button type="submit" class="md-raised md-primary">Siguiente</md-button>

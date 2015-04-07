@@ -199,8 +199,14 @@ h1.fd-accent, h2.fd-accent, h3.fd-accent, h4.fd-accent, h5.fd-accent, h6.fd-acce
   outline: none;
 }
 
+
+.fd-form{
+  .fd-form-wrapper{
+    padding: 16px;
+  }
+}
+
 .fd-delivery-info-form{
-  padding: 8px;
   background-color: $light-gray;
 }
 
@@ -217,8 +223,11 @@ a{
 .fd-main-title{
   .md-display-3{
     color: $acid-green;
-    margin-bottom: 0;
   }
+}
+
+.fd-collapse-bottom{
+  margin-bottom: 0;
 }
 
 //---------- Override material.css classes
