@@ -1,0 +1,242 @@
+body {
+  background-color: #f6f6f6;
+  color: #212121;
+  height: auto; }
+
+.fd-card-action {
+  background: #F7F7F7;
+  padding: 16px;
+  vertical-align: text-bottom;
+  border-top: 1px solid #dedede;
+  margin-top: 16px; }
+  .fd-card-action button {
+    float: right; }
+
+.fd-layout-content {
+  padding: 0 16px; }
+  .fd-layout-content .md-subhead, .fd-layout-content .md-title {
+    color: #212121; }
+
+h1.fd-primary, h2.fd-primary, h3.fd-primary, h4.fd-primary, h5.fd-primary, h6.fd-primary {
+  color: #F2695E; }
+
+h1.fd-accent, h2.fd-accent, h3.fd-accent, h4.fd-accent, h5.fd-accent, h6.fd-accent {
+  color: #00D4C9; }
+
+.fd-accent-text {
+  color: #00D4C9; }
+
+.fd-main-container {
+  width: 90%;
+  margin: 0 auto; }
+
+.fd-food-tabs {
+  padding: 32px; }
+  .fd-food-tabs .fd-food-tab {
+    cursor: pointer;
+    float: left;
+    width: 100px;
+    text-align: center;
+    outline: none;
+    color: #727272;
+    padding: 0 8px; }
+    .fd-food-tabs .fd-food-tab md-icon {
+      border-radius: 100%;
+      color: #727272;
+      background-color: #F7F7F7; }
+    .fd-food-tabs .fd-food-tab.fd-tab-completed {
+      color: #00D4C9; }
+      .fd-food-tabs .fd-food-tab.fd-tab-completed md-icon {
+        color: #00D4C9;
+        border-color: #a1fffa;
+        background-color: rgba(0, 212, 201, 0.2); }
+    .fd-food-tabs .fd-food-tab.fd-active {
+      border-bottom: 2px solid #00D4C9; }
+
+.fd-menu-date {
+  position: relative; }
+  .fd-menu-date .icon {
+    position: absolute;
+    bottom: 16px;
+    right: 0px; }
+
+.fd-icon-s84 {
+  height: 84px;
+  width: 84px; }
+
+.fd-icon-s64 {
+  height: 64px;
+  width: 64px; }
+
+.fd-icon-s56 {
+  height: 56px;
+  width: 56px; }
+
+.fd-menu-item-card {
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+  margin: 16px; }
+
+.fd-menu-item .fd-menu-item-title::after {
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid #FFFFFF;
+  bottom: -8px;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-left: -1px;
+  position: absolute;
+  width: 0; }
+
+.fd-menu-item {
+  margin-bottom: 16px !important; }
+  .fd-menu-item .fd-menu-item-title {
+    box-sizing: border-box;
+    padding: 0px 16px;
+    position: relative;
+    color: #00D4C9; }
+  .fd-menu-item .fd-menu-item-footer {
+    box-sizing: border-box;
+    padding: 16px 16px;
+    background-color: #F7F7F7; }
+    .fd-menu-item .fd-menu-item-footer .md-headline {
+      margin: 0;
+      color: #00D4C9; }
+    .fd-menu-item .fd-menu-item-footer .md-headline + .md-body-1 {
+      margin-top: 0; }
+  .fd-menu-item .fd-menu-item-image {
+    background-color: #F7F7F7;
+    opacity: 1; }
+  .fd-menu-item.fd-active .fd-menu-item-title {
+    background-color: #00D4C9;
+    color: white; }
+  .fd-menu-item.fd-active .fd-menu-item-title::after {
+    border-top: 9px solid #00D4C9; }
+  .fd-menu-item.fd-active .fd-menu-item-image {
+    opacity: 1; }
+
+.fd-collapse-margin {
+  margin: 0; }
+
+.fd-review-order {
+  background-color: #F7F7F7;
+  padding: 16px;
+  margin-top: 16px; }
+  .fd-review-order .fd-review-order-item {
+    padding: 8px; }
+    .fd-review-order .fd-review-order-item .fd-review-order-item-text {
+      line-height: 56px;
+      margin-left: 16px; }
+      .fd-review-order .fd-review-order-item .fd-review-order-item-text p {
+        vertical-align: middle;
+        line-height: normal;
+        display: inline-block; }
+    .fd-review-order .fd-review-order-item md-icon {
+      color: #00D4C9; }
+
+.fd-delivery-info-title {
+  outline: none; }
+
+.fd-delivery-info-form {
+  padding: 8px;
+  background-color: #F7F7F7; }
+
+a {
+  color: #F2695E; }
+
+.fd-big-card {
+  background-color: white;
+  margin-bottom: 16px; }
+
+.fd-main-title .md-display-3 {
+  color: #00D4C9;
+  margin-bottom: 0; }
+
+md-toolbar.md-default-theme {
+  background-color: #00D4C9;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1); }
+
+.md-button.md-default-theme.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab {
+  background: #F2695E; }
+
+.md-button.md-default-theme.md-primary.md-raised:focus:not([disabled]), .md-button.md-default-theme.md-primary.md-fab:focus:not([disabled]) {
+  background: #f05346; }
+
+.md-title {
+  font-weight: 400; }
+
+.md-body-1 {
+  font-size: 1.6rem; }
+
+.md-whiteframe-z1 {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26); }
+
+.md-headline {
+  margin: 19px 0; }
+
+.fd-form-group label {
+  font-size: 12px;
+  color: #727272; }
+.fd-form-group md-select, .fd-form-group input {
+  width: 100%; }
+
+.fd-form-group {
+  padding: 2px; }
+  .fd-form-group input[type="text"], .fd-form-group input[type="file"], .fd-form-group input[type="password"], .fd-form-group input[type="email"] {
+    -moz-appearance: none;
+    background: none repeat scroll 0 0 transparent;
+    border-color: rgba(0, 0, 0, 0.12);
+    border-radius: 0;
+    display: block;
+    border-image: none;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+    margin-bottom: 16px;
+    outline: 0 none;
+    padding: 0 0 2px;
+    width: 100%; }
+  .fd-form-group input:focus, .fd-form-group textarea:focus {
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    border-color: -moz-use-text-color -moz-use-text-color #00D4C9 !important;
+    border-image: none !important;
+    border-style: none none solid !important;
+    border-width: medium medium 1px !important;
+    outline: 0 none; }
+
+time.icon {
+  font-size: 0.8em;
+  /* change icon size */
+  display: block;
+  position: relative;
+  width: 7em;
+  height: 7em;
+  background-color: #fff;
+  border-radius: 0.6em;
+  overflow: hidden; }
+  time.icon * {
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center; }
+  time.icon strong {
+    position: absolute;
+    top: 0;
+    padding: 0.4em 0;
+    color: #fff;
+    background-color: #F2695E; }
+  time.icon em {
+    position: absolute;
+    bottom: 0.3em;
+    color: #F2695E; }
+  time.icon span {
+    font-size: 2.8em;
+    letter-spacing: -0.05em;
+    padding-top: 0.8em;
+    color: #727272; }
+
+/*# sourceMappingURL=foodie.css.map */

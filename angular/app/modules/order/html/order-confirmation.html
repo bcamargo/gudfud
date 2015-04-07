@@ -1,0 +1,56 @@
+<md-content>
+    <md-card>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h3 class="md-title">Confirma tu pedido</h3>
+            </div>
+        </md-toolbar>
+        <div layout="row" class="fd-card-content">
+            <div flex="" class="fd-menu-item-card fd-light-purple">
+                <img src="images/appetizer.svg">
+
+                <div class="fd-footer">
+                    <h3>{{ order.appetizer.name }}</h3>
+
+                    <p>{{ order.appetizer.description }}</p>
+                </div>
+            </div>
+            <div flex="" class="fd-menu-item-card fd-light-yellow">
+                <img src="images/main.svg">
+                <div class="fd-footer">
+                    <h3>{{ order.main.name }}</h3>
+
+                    <p>{{ order.main.description }}</p>
+                </div>
+            </div>
+            <div flex="" class="fd-menu-item-card fd-blue">
+                <img src="images/beverage.svg">
+
+                <div class="fd-footer">
+                    <h3>{{ order.beverage.name }}</h3>
+
+                    <p>{{ order.beverage.description }}</p>
+                </div>
+            </div>
+            <div flex="" class="fd-menu-item-card fd-red">
+                <img src="images/dessert.svg">
+
+                <div class="fd-footer">
+                    <h3>{{ order.dessert.name }}</h3>
+                    <p>{{ order.dessert.description }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div layout="row" class="fd-card-action">
+            <div flex="80">
+                <strong>Excelente elección!</strong>
+                Tu pedido llegará entre las {{ delivery_time_range.start }} y
+                    las {{ delivery_time_range.end }}
+            </div>
+            <div flex="20">
+                <md-button class="md-raised md-primary">Hacer pedido</md-button>
+            </div>
+        </div>
+    </md-card>
+</md-content>

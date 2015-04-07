@@ -55,11 +55,18 @@ module.exports = function (grunt) {
             html: {
                 files: 'app/**/*.html'
             }
-
+        },
+        sass: {                              // Task
+            dist: {                            // Target
+                options: {                       // Target options
+                    loadPath: ['bowe_components/foundation-apps/scss']
+                }
+            }
         }
 
     });
 
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');

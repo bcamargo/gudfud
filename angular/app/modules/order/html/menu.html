@@ -1,0 +1,237 @@
+<div layout="row">
+    <div flex="" class="fd-main-title">
+        <h1 class="md-display-3">Menú del día</h1>
+        <p class="md-body-1">Selecciona tus opciones preferidas y haz tu pedido en línea</p>
+    </div>
+    <div flex="" class="fd-menu-date">
+        <time datetime="2014-09-20" class="icon md-whiteframe-z1">
+            <em>{{ menu.datetime | date:"EEEE" }}</em>
+            <strong>{{ menu.datetime | date:"MMMM" }}</strong>
+            <span>{{ menu.datetime | date:"d" }}</span>
+        </time>
+    </div>
+</div>
+<div class="md-whiteframe-z1 fd-big-card">
+    <div layout="row" class="fd-food-tabs" layout-align="center center">
+        <div class="fd-food-tab" ng-click="selected_tab = 1"
+             ng-class="{'fd-active': selected_tab == 1, 'fd-tab-completed': order.appetizer}">
+            <md-icon md-svg-src="images/cooking-pan.svg" class="fd-icon-s84"></md-icon>
+            <h2 class="md-subhead fd-collapse-margin">Entrada</h2>
+        </div>
+        <div class="fd-food-tab" ng-click="selected_tab = 2"
+             ng-class="{'fd-active': selected_tab == 2, 'fd-tab-completed': order.main}">
+            <md-icon md-svg-src="images/cooking-pot.svg" class="fd-icon-s84"></md-icon>
+            <h2 class="md-subhead fd-collapse-margin">Fuerte</h2>
+        </div>
+        <div class="fd-food-tab" ng-click="selected_tab = 3"
+             ng-class="{'fd-active': selected_tab == 3, 'fd-tab-completed': order.beverage}">
+            <md-icon md-svg-src="images/juicer.svg" class="fd-icon-s84"></md-icon>
+            <h2 class="md-subhead fd-collapse-margin">Bebida</h2>
+        </div>
+        <div class="fd-food-tab" ng-click="selected_tab = 4"
+             ng-class="{'fd-active': selected_tab == 4, 'fd-tab-completed': order.dessert}">
+            <md-icon md-svg-src="images/whisk.svg" class="fd-icon-s84"></md-icon>
+            <h2 class="md-subhead fd-collapse-margin">Postre</h2>
+        </div>
+        <div class="fd-food-tab" ng-click="selected_tab = 5"
+             ng-class="{'fd-active': selected_tab == 5}">
+            <md-icon md-svg-src="images/paper-bag.svg" class="fd-icon-s84"></md-icon>
+            <h2 class="md-subhead fd-collapse-margin">Entrega</h2>
+        </div>
+    </div>
+    <div class="fd-layout-content">
+        <div layout="column" ng-show="selected_tab==1">
+            <div flex="">
+                <p class="md-body-1">Selecciona una opcion de entrada</p>
+            </div>
+            <div layout="row" layout-wrap layout-margin layout-fill layout-align="space-around start">
+                <div layout="column" flex="30" ng-repeat="item in menu.appetizer"
+                     class="fd-menu-item md-whiteframe-z1"
+                     ng-class="{'fd-active': order.appetizer.id == item.id}" ng-click="select_menu_item(item)">
+                    <div class="fd-menu-item-image">
+                        <img style="width: 100%;"
+                             src="http://api.ning.com/files/x9KBpl7z4r*LyQA4LiOouJuYL326qdgyRXeSmnmPvLb5KcNb-h1hr5p-rODvKWxChGde4DHxyXAqFAimPL3HZ-yARICqFxpi/ardw.jpg?width=312">
+                    </div>
+                    <div class="fd-menu-item-footer">
+                        <h4 class="md-headline">{{ item.name }}</h4>
+                        <p class="md-body-1">{{ item.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout="column" ng-show="selected_tab==2">
+            <div flex="">
+                <p class="md-body-1">Selecciona una opcion de plato fuerte</p>
+            </div>
+            <div layout="row" layout-wrap layout-margin layout-fill layout-align="space-around start">
+                <div layout="column" flex="30" ng-repeat="item in menu.main" class="fd-menu-item md-whiteframe-z1"
+                     ng-class="{'fd-active': order.main.id == item.id}" ng-click="select_menu_item(item)">
+                    <div class="fd-menu-item-image">
+                        <img style="width: 100%;"
+                             src="http://api.ning.com/files/x9KBpl7z4r*LyQA4LiOouJuYL326qdgyRXeSmnmPvLb5KcNb-h1hr5p-rODvKWxChGde4DHxyXAqFAimPL3HZ-yARICqFxpi/ardw.jpg?width=312">
+                    </div>
+                    <div class="fd-menu-item-footer">
+                        <h4 class="md-headline">{{ item.name }}</h4>
+                        <p class="md-body-1">{{ item.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout="column" ng-show="selected_tab==3">
+            <div flex="">
+                <p class="md-body-1">Selecciona una opcion de bebida</p>
+            </div>
+            <div layout="row" layout-wrap layout-margin layout-fill layout-align="space-around start">
+                <div layout="column" flex="30" ng-repeat="item in menu.beverage"
+                     class="fd-menu-item md-whiteframe-z1"
+                     ng-class="{'fd-active': order.beverage.id == item.id}" ng-click="select_menu_item(item)">
+                    <div class="fd-menu-item-image">
+                        <img style="width: 100%;"
+                             src="http://api.ning.com/files/x9KBpl7z4r*LyQA4LiOouJuYL326qdgyRXeSmnmPvLb5KcNb-h1hr5p-rODvKWxChGde4DHxyXAqFAimPL3HZ-yARICqFxpi/ardw.jpg?width=312">
+                    </div>
+                    <div class="fd-menu-item-footer">
+                        <h4 class="md-headline">{{ item.name }}</h4>
+                        <p class="md-body-1">{{ item.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout="column" ng-show="selected_tab==4">
+            <div flex="">
+                <p class="md-body-1">Selecciona una opcion de postre</p>
+            </div>
+            <div layout="row" layout-wrap layout-margin layout-fill layout-align="space-around start">
+                <div layout="column" flex="30" ng-repeat="item in menu.dessert"
+                     class="fd-menu-item md-whiteframe-z1"
+                     ng-class="{'fd-active': order.dessert.id == item.id}" ng-click="select_menu_item(item)">
+                    <div class="fd-menu-item-image">
+                        <img style="width: 100%;"
+                             src="http://api.ning.com/files/x9KBpl7z4r*LyQA4LiOouJuYL326qdgyRXeSmnmPvLb5KcNb-h1hr5p-rODvKWxChGde4DHxyXAqFAimPL3HZ-yARICqFxpi/ardw.jpg?width=312">
+                    </div>
+                    <div class="fd-menu-item-footer">
+                        <h4 class="md-headline">{{ item.name }}</h4>
+                        <p class="md-body-1">{{ item.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="selected_tab==5">
+            <div layout="column">
+                <h3 class="md-title">Pedido</h3>
+                <div layout="row">
+                    <div class="fd-form-group" flex="">
+                        <label>Entregar</label>
+                        <md-select placeholder="Hora de entrega" ng-model="order.delivery_time"
+                                   class="fd-collapse-margin">
+                            <md-option value="12">Entre las 12:00pm y las 12:30pm</md-option>
+                            <md-option value="12.5">Entre las 12:30pm y la 1:00pm</md-option>
+                            <md-option value="13">Entre la 1:00pm y la 1:30pm</md-option>
+                            <md-option value="13.5">Entre la 1:30pm y las 2:00pm</md-option>
+                            <md-option value="14">Entre las 2:00pm y las 2:30pm</md-option>
+                            <md-option value="14.5">Entre las 2:30pm y las 3:00pm</md-option>
+                        </md-select>
+                    </div>
+                    <div flex=""></div>
+                </div>
+                <div class="fd-review-order">
+                    <div>
+                        <div layout="row" layout-wrap="">
+                            <div flex="50" layout="row" class="fd-review-order-item">
+                                <div>
+                                    <md-icon md-svg-src="images/cooking-pan.svg" class="fd-icon-s56"></md-icon>
+                                </div>
+                                <div class="fd-review-order-item-text">
+                                    <p class="md-body-1 fd-collapse-margin">{{ order.appetizer.name }}</p>
+                                    <a href="" ng-click="selected_tab=1" class="md-caption">Cambiar</a>
+                                </div>
+                            </div>
+                            <div flex="50" layout="row" class="fd-review-order-item">
+                                <div>
+                                    <md-icon md-svg-src="images/cooking-pot.svg" class="fd-icon-s56"></md-icon>
+                                </div>
+                                <div class="fd-review-order-item-text">
+                                    <p class="md-body-1 fd-collapse-margin">{{ order.main.name }}</p>
+                                    <a href="" ng-click="selected_tab=2" class="md-caption">Cambiar</a>
+                                </div>
+                            </div>
+                            <div flex="50" layout="row" class="fd-review-order-item">
+                                <div>
+                                    <md-icon md-svg-src="images/juicer.svg" class="fd-icon-s56"></md-icon>
+                                </div>
+                                <div class="fd-review-order-item-text">
+                                    <p class="md-body-1 fd-collapse-margin">{{ order.beverage.name }}</p>
+                                    <a href="" ng-click="selected_tab=3" class="md-caption">Cambiar</a>
+                                </div>
+                            </div>
+                            <div flex="50" layout="row" class="fd-review-order-item">
+                                <div>
+                                    <md-icon md-svg-src="images/whisk.svg" class="fd-icon-s56"></md-icon>
+                                </div>
+                                <div class="fd-review-order-item-text">
+                                    <p class="md-body-1 fd-collapse-margin">{{ order.dessert.name }}</p>
+                                    <a href="" ng-click="selected_tab=4" class="md-caption">Cambiar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="md-title">Envío <a href="" ng-show="!show_delivery_info"
+                                                                                    ng-click="show_delivery_info=!show_delivery_info"
+                                                                                    class="md-caption">Cambiar</a>
+                </h3>
+
+                <div layout="row" ng-show="!show_delivery_info">
+                    <div flex="" class="fd-form-group">
+                        <label>Nombres</label><br>
+                        <span>{{ profile.first_name }} {{ profile.last_name }}</span><br>
+                        <label>Dirección</label><br>
+                        <span>{{ profile.address }}</span><br>
+                    </div>
+                    <div flex="" class="fd-form-group">
+                        <label>Teléfonos</label><br>
+                        <span>{{ profile.mobile_number }}</span> / <span>{{ profile.phone_number }}</span><br>
+                        <label>Correo electrónico</label><br>
+                        <span>{{ profile.email }}</span>
+                    </div>
+                </div>
+                <form ng-show="show_delivery_info" class="fd-delivery-info-form">
+                    <div layout="" layout-sm="column">
+                        <div flex="" class="fd-form-group">
+                            <label for="first_name">Nombres</label>
+                            <input type="text" name="first_name" id="first_name" ng-model="profile.first_name">
+                        </div>
+                        <div flex="" class="fd-form-group">
+                            <label for="last_name">Apellidos</label>
+                            <input type="text" name="last_name" id="last_name" ng-model="profile.last_name">
+                        </div>
+                    </div>
+                    <div layout="" layout-sm="column">
+                        <div flex="" class="fd-form-group">
+                            <label for="address">Dirección</label>
+                            <input type="text" name="address" id="address" ng-model="profile.address">
+                        </div>
+                        <div flex="" class="fd-form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="text" name="email" id="email" ng-model="profile.email">
+                        </div>
+                    </div>
+                    <div layout="" layout-sm="column">
+                        <div flex="" class="fd-form-group">
+                            <label for="mobile_number">Móvil</label>
+                            <input type="text" name="mobile_number" id="mobile_number" ng-model="profile.mobile_number">
+                        </div>
+                        <div flex="" class="fd-form-group">
+                            <label for="phone_number">Teléfono</label>
+                            <input type="text" name="phone_number" id="phone_number" ng-model="profile.phone_number">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div layout="row" class="fd-card-action" ng-show="selected_tab==5">
+        <div flex="">
+            <md-button class="md-raised md-primary" ng-click="confirm_order()">Confirma tu pedido</md-button>
+        </div>
+    </div>
+</div>

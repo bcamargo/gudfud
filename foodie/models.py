@@ -6,6 +6,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager as AuthBaseUserManager
 from foodie.storage import OverwriteStorage
 import models_mixins
+from django.utils import timezone
 
 
 class BaseUserManager(AuthBaseUserManager):
@@ -38,6 +39,14 @@ class BaseUser(AbstractBaseUser):
     def username(self):
         return self.email
 
+    @property
+    def is_customer(self):
+        return hasattr(self, 'customer')
+
+    @property
+    def is_operator(self):
+        return hasattr(self, 'operator')
+
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
 
@@ -69,25 +78,56 @@ class BaseUser(AbstractBaseUser):
 
         super(BaseUser, self).save(force_insert, force_update, using, update_fields)
 
+    def get_named_user(self):
+        """
+        Returns the physician or assistant object related to this base user.
+        None if there is no relation
+        """
+        if self.is_customer:
+            return self.customer
+        elif self.is_operator:
+            return self.operator
+        else:
+            return None
+
 
 class Customer(models_mixins.BaseUserMixin, models.Model):
     base_user = models.OneToOneField('BaseUser', related_name='customer')
-    address = models.CharField(max_length=256, null=True, blank=True)
+    address = models.CharField(max_length=64, null=True, blank=True)
     is_email_verified = models.BooleanField(default=False)
     mobile_number = models.CharField(max_length=32, null=True, blank=True)
     phone_number = models.CharField(max_length=32, null=True, blank=True)
 
+    @property
+    def is_customer(self):
+        return True
 
-class Dispatcher(models_mixins.BaseUserMixin, models.Model):
-    base_user = models.OneToOneField('BaseUser', related_name='dispatcher')
+    def __unicode__(self):
+        return self.full_name
+
+
+class Dispatcher(models.Model):
+    email = models.CharField('email', max_length=64, unique=True)
+    first_name = models.CharField('first name', max_length=32, blank=True, null=True)
+    last_name = models.CharField('last name', max_length=32, blank=True, null=True)
+    image = models.ImageField('image', upload_to='dispatcher/images', blank=True, null=True,
+                              storage=OverwriteStorage())
+    thumbnail = models.ImageField('thumbnail', upload_to='dispatcher/thumbnails', blank=True, null=True,
+                                  storage=OverwriteStorage())
+    is_active = models.BooleanField(default=True)
 
 
 class Operator(models_mixins.BaseUserMixin, models.Model):
     base_user = models.OneToOneField('BaseUser', related_name='operator')
 
+    def __unicode__(self):
+        return self.full_name
+
 
 class MenuItem(models.Model):
-    menu_item_category = models.ForeignKey('MenuItemCategory', related_name='menu_items')
+    ITEM_TYPE = (('APPETIZER', 'APPETIZER'), ('MAIN', 'MAIN'), ('DESSERT', 'DESSERT'), ('BEVERAGE', 'BEVERAGE'))
+
+    type = models.CharField(max_length=32, choices=ITEM_TYPE)
     name = models.CharField(max_length=32)
     description = models.TextField(null=True, blank=True)
     image = models.ImageField('image', upload_to='menu_items/images', blank=True, null=True,
@@ -96,19 +136,24 @@ class MenuItem(models.Model):
                                   storage=OverwriteStorage())
     is_active = models.BooleanField(default=True)
 
+    def __unicode__(self):
+        return self.name
+
+
+class MenuManager(models.Manager):
+    def get_current_menu(self):
+        now = timezone.now()
+        menu = self.filter(datetime__gte=now).first()
+        return menu
+
 
 class Menu(models.Model):
     datetime = models.DateTimeField()
     menu_items = models.ManyToManyField('MenuItem')
+    objects = MenuManager()
 
-
-class MenuItemCategory(models.Model):
-    name = models.CharField(max_length=32)
-    image = models.ImageField('image', upload_to='menu_items/images', blank=True, null=True,
-                              storage=OverwriteStorage())
-    thumbnail = models.ImageField('thumbnail', upload_to='menu_items/thumbnails', blank=True, null=True,
-                                  storage=OverwriteStorage())
-    is_active = models.BooleanField(default=True)
+    def __unicode__(self):
+        return str(self.datetime)
 
 
 class ServiceRating(models.Model):

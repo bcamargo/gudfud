@@ -1,4 +1,4 @@
 (function() {
     'use strict';
-    angular.module('uk.login', []);
+    angular.module('fd.login', []);
 })();

@@ -2,42 +2,42 @@
     'use strict';
 
     angular
-        .module('uk.login')
+        .module('fd.login')
         .controller('LoginCtrl', LoginCtrl);
 
     LoginCtrl.$inject = [
-        '$scope', '$http'
+        '$scope', '$state', 'userSrv'
     ];
 
-    function LoginCtrl($scope, $http) {
-        $scope.loginBK = function (backend) {
+    function LoginCtrl($scope, $state, userSrv) {
+        $scope.login = login;
+
+
+        initialize();
+
+        function initialize(){
+            // oauth.io initilization
+            OAuth.initialize('Xj4ohspQonfU5vQq9PnG8Caypkk');
+        }
+
+        function login(backend) {
 
             OAuth.popup(backend, function(error, success) {
                 if (error) {
-
+                    console.log('error', error);
                 }
                 else {
                     var token = success.access_token || success.oauth_token;
-                    var url = 'http://0.0.0.0:8000/api/users/access-token';
-                    var data = {'token': token, 'backend': backend};
-                    var loginPromise = $http.post(url, data);
 
-                    $scope.login.working = true;
+                    var data = {'token': token, 'backend': backend};
+                    var loginPromise = userSrv.register(data);
 
                     loginPromise.success(function () {
-                      $scope.login = { working: false };
+                        $state.go('registration-profile');
                     });
-
-                    loginPromise.finally(function () {
-                      $scope.login.working = false;
-                    });
-
                 }
             });
-        };
-
-        // oauth.io initilization
-        OAuth.initialize('Xj4ohspQonfU5vQq9PnG8Caypkk');
+        }
     }
 })();
 

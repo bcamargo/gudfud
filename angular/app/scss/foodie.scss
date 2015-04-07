@@ -1,0 +1,335 @@
+$calm-orange: #F2695E;
+$acid-green: #00D4C9;
+$secondary-text: #727272;
+$primary-text: #212121;
+
+$background-color: #f6f6f6;
+$green: #b9f6ca;
+$light-gray: #F7F7F7;
+$gray: $secondary-text;
+$black: $primary-text;
+$light-purple: #d1c4e9;
+$blue: #80d8ff;
+$light-blue: #84ffff;
+$light-yellow: #ffff8d;
+$red: #ff8a80;
+
+body {
+  background-color: $background-color;
+  color: $primary-text;
+  height: auto;
+}
+
+.fd-card-action {
+  background: #F7F7F7;
+  padding: 16px;
+  vertical-align: text-bottom;
+  border-top: 1px solid darken($light-gray, 10);
+  margin-top: 16px;
+  button {
+    float: right;
+  }
+}
+
+.fd-layout-content {
+  padding: 0 16px;
+  .md-subhead, .md-title{
+    color: $primary-text;
+  }
+
+}
+
+h1.fd-primary, h2.fd-primary, h3.fd-primary, h4.fd-primary, h5.fd-primary, h6.fd-primary{
+  color: $calm-orange;
+}
+
+h1.fd-accent, h2.fd-accent, h3.fd-accent, h4.fd-accent, h5.fd-accent, h6.fd-accent{
+  color: $acid-green;
+}
+
+.fd-accent-text{
+  color: $acid-green;
+}
+
+.fd-main-container{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.fd-food-tabs {
+  padding: 32px;
+  .fd-food-tab{
+    cursor: pointer;
+    float: left;
+    width: 100px;
+    text-align: center;
+    outline: none;
+    color: $gray;
+    padding: 0 8px;
+    md-icon{
+      border-radius: 100%;
+      color: $secondary-text;
+      background-color: $light-gray;
+    }
+    &.fd-tab-completed{
+      color: $acid-green;
+      md-icon {
+        color: $acid-green;
+        border-color: lighten($acid-green, 40);
+        background-color: rgba($acid-green, 0.2);
+      }
+    }
+    &.fd-active {
+      border-bottom: 2px solid $acid-green;
+    }
+  }
+}
+
+.fd-menu-date {
+  position: relative;
+  .icon{
+    position: absolute;
+    bottom: 16px;
+    right: 0px;
+  }
+}
+
+.fd-icon-s84 {
+  height: 84px;
+  width: 84px;
+}
+
+.fd-icon-s64{
+  height: 64px;
+  width: 64px;
+}
+
+.fd-icon-s56{
+  height: 56px;
+  width: 56px;
+}
+
+.fd-menu-item-card {
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+  margin: 16px;
+}
+
+
+.fd-menu-item .fd-menu-item-title::after{
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid #FFFFFF;
+  bottom: -8px;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-left: -1px;
+  position: absolute;
+  width: 0;
+}
+
+.fd-menu-item{
+  margin-bottom: 16px !important;
+  .fd-menu-item-title {
+    box-sizing: border-box;
+    padding: 0px 16px;
+    position: relative;
+    color: $acid-green;
+  }
+  .fd-menu-item-footer {
+    box-sizing: border-box;
+    padding: 16px 16px;
+    background-color: $light-gray;
+    .md-headline{
+      margin: 0;
+      color: $acid-green;
+    }
+    .md-headline + .md-body-1{
+      margin-top: 0;
+    }
+  }
+  .fd-menu-item-image {
+    background-color: $light-gray;
+    opacity: 1;
+  }
+  &.fd-active {
+    .fd-menu-item-title{
+      background-color: $acid-green;
+      color: white;
+    }
+    .fd-menu-item-title::after{
+      border-top: 9px solid $acid-green;
+    }
+    .fd-menu-item-image {
+      opacity: 1;
+    }
+  }
+}
+
+.fd-collapse-margin{
+  margin: 0;
+}
+
+.fd-review-order{
+  background-color: $light-gray;
+  padding: 16px;
+  margin-top: 16px;
+  .fd-review-order-item{
+    padding: 8px;
+    .fd-review-order-item-text {
+      line-height: 56px;
+      margin-left: 16px;
+      p {
+        vertical-align: middle;
+        line-height: normal;
+        display: inline-block;
+      }
+    }
+    md-icon{
+      color: $acid-green;
+    }
+  }
+}
+
+.fd-delivery-info{
+
+}
+
+.fd-delivery-info-title{
+  outline: none;
+}
+
+.fd-delivery-info-form{
+  padding: 8px;
+  background-color: $light-gray;
+}
+
+a{
+  color: $calm-orange;
+}
+
+.fd-big-card{
+  background-color: white;
+  margin-bottom: 16px;
+}
+
+
+.fd-main-title{
+  .md-display-3{
+    color: $acid-green;
+    margin-bottom: 0;
+  }
+}
+
+//---------- Override material.css classes
+
+md-toolbar.md-default-theme {
+  background-color: $acid-green;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.md-button.md-default-theme.md-primary {
+  &.md-raised, &.md-fab {
+    background: $calm-orange;
+  }
+}
+
+.md-button.md-default-theme.md-primary {
+  &.md-raised:focus:not([disabled]), &.md-fab:focus:not([disabled]) {
+    background: darken($calm-orange, 5);
+  }
+}
+
+.md-title{
+  font-weight: 400;
+}
+
+.md-body-1{
+  font-size: 1.6rem;
+}
+
+.md-whiteframe-z1{
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+}
+
+.md-headline{
+  margin: 19px 0;
+}
+
+.fd-form-group{
+  label{
+    font-size: 12px;
+    color: $secondary-text;
+  }
+  md-select, input{
+    width: 100%;
+  }
+}
+
+.fd-form-group {
+  padding: 2px;
+  input {
+    &[type="text"], &[type="file"], &[type="password"], &[type="email"] {
+      -moz-appearance: none;
+      background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+      border-color: rgba(0, 0, 0, 0.12);
+      border-radius: 0;
+      display: block;
+      border-image: none;
+      border-style: none none solid;
+      border-width: 0 0 1px;
+      margin-bottom: 16px;
+      outline: 0 none;
+      padding: 0 0 2px;
+      width: 100%;
+    }
+  }
+  input:focus, textarea:focus {
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    border-color: -moz-use-text-color -moz-use-text-color $acid-green !important;
+    border-image: none !important;
+    border-style: none none solid !important;
+    border-width: medium medium 1px !important;
+    outline: 0 none;
+  }
+}
+
+time.icon {
+  font-size: 0.8em; /* change icon size */
+  display: block;
+  position: relative;
+  width: 7em;
+  height: 7em;
+  background-color: #fff;
+  border-radius: 0.6em;
+  overflow: hidden;
+  * {
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+  }
+  strong {
+    position: absolute;
+    top: 0;
+    padding: 0.4em 0;
+    color: #fff;
+    background-color: $calm-orange;
+  }
+  em {
+    position: absolute;
+    bottom: 0.3em;
+    color: $calm-orange;
+  }
+  span {
+    font-size: 2.8em;
+    letter-spacing: -0.05em;
+    padding-top: 0.8em;
+    color: $secondary-text;
+  }
+}

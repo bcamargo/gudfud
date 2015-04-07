@@ -51,11 +51,16 @@ class Migration(migrations.Migration):
             name='Dispatcher',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('base_user', models.OneToOneField(related_name='dispatcher', to=settings.AUTH_USER_MODEL)),
+                ('email', models.CharField(unique=True, max_length=64, verbose_name=b'email')),
+                ('first_name', models.CharField(max_length=32, null=True, verbose_name=b'first name', blank=True)),
+                ('last_name', models.CharField(max_length=32, null=True, verbose_name=b'last name', blank=True)),
+                ('image', models.ImageField(storage=foodie.storage.OverwriteStorage(), upload_to=b'dispatcher/images', null=True, verbose_name=b'image', blank=True)),
+                ('thumbnail', models.ImageField(storage=foodie.storage.OverwriteStorage(), upload_to=b'dispatcher/thumbnails', null=True, verbose_name=b'thumbnail', blank=True)),
+                ('is_active', models.BooleanField(default=True)),
             ],
             options={
             },
-            bases=(foodie.models_mixins.BaseUserMixin, models.Model),
+            bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='Menu',
